@@ -1,0 +1,10 @@
+Total Vendas - ALL Cor = CALCULATE([Total Vendas], ALL(Produto[Cor]))
+--
+Total Vendas - Red Fixo = 
+CALCULATE(
+    [Total Vendas], 
+    FILTER(
+        ALL(Produto[Cor]),
+        Produto[Cor] = "Red"
+    )
+)
