@@ -1,6 +1,4 @@
-Total Vendas - ALL Cor = CALCULATE([Total Vendas], ALL(Produto[Cor]))
---
-Total Vendas - Red Fixo = 
+--aqui filtra tudo da cor vermelha, como o all e filtrer estão apenas na cor vermelha, ele respeita o contexto de filtro da categoria dos produtos
 CALCULATE(
     [Total Vendas], 
     FILTER(
@@ -8,3 +6,4 @@ CALCULATE(
         Produto[Cor] = "Red"
     )
 )
+--
