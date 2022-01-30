@@ -6,4 +6,7 @@ CALCULATE(
         Produto[Cor] = "Red"
     )
 )
+-- aqui o filtro é na coluna cor
+Total Vendas - ALL Cor = CALCULATE([Total Vendas], ALL(Produto[Cor]))
 --
+Total Vendas - Selected Cor = CALCULATE([Total Vendas], ALLSELECTED(Produto[Cor]))
