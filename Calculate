@@ -1,3 +1,6 @@
+--O CALCULATE É CAPAZ DE MUDAR O CONTEXTO ATUAL
+--QUANDO PRESENTE NA FORMULA QUANDO O CONTEXTO É DE LINHA O CALCULATE MUDA O FILTRO PRA O CONTEXTO EQUIVALENTE
+
 --aqui filtra tudo da cor vermelha, como o all e filtrer estão apenas na cor vermelha, ele respeita o contexto de filtro da categoria dos produtos
 CALCULATE(
     [Total Vendas], 
@@ -8,5 +11,17 @@ CALCULATE(
 )
 -- aqui o filtro é na coluna cor
 Total Vendas - ALL Cor = CALCULATE([Total Vendas], ALL(Produto[Cor]))
---
+-- aqui quando eu filtro uma cor especifica, aparece apenas o valor total dela (por causa do allselected)
 Total Vendas - Selected Cor = CALCULATE([Total Vendas], ALLSELECTED(Produto[Cor]))
+-- aqui vc pode filtrar oq quiser, o total sempre sera o mesmo
+Total Vendas - ALL Produto = CALCULATE([Total Vendas], ALL(Produto))
+-- aqui respeita o filtro q vc quiser
+Total Vendas - Selected = CALCULATE([Total Vendas], ALLSELECTED())
+
+--O CONTEXTO DE LINHA SE PROPAGA PELO RELACIONAMENTO, POR ISSO, A TABELA NÃO CONSEGUE IDENTIFICAR QUAL LINHA ESTÁ FILTRANDO, JÁ O CALCULATE FAZ ISSO
+-- ISSO É QUANDO VC TA USANDO UMA FUNÇÃO ITERADORA QUE Q POSSUE UM DADO EM UMA TABELA E O OUTRO EM OUTRA (LIGADAS PELO RELACIONAMENTO), UTILIZAR:
+
+AVERAGEX (
+        dCliente,
+        CALCULATE(SUM(VENDAS[VALOR])
+)
