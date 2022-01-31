@@ -1,0 +1,8 @@
+-- BI-REDIRECIONAL:EVITAR O DO POWERBI, O IDEAL É USAR O CROSSFILTER, POIS O TOTAL VAI DAR ERRADO
+
+Qde Produtos Vendidos - CROSSFILTER = 
+CALCULATE(
+    COUNTROWS(Produto),
+    CROSSFILTER('Vendas Internet'[ID Produto], Produto[ID Produto], Both)
+)
+
