@@ -1,0 +1,11 @@
+--VALUES: TRANSFORMA UMA COLUNA EM TABELA: OU SEJA, IDEAL QUANDO VC TEM FORMULAS Q PEDEM UMA TABELA, MAS VC SÓ TEM UMA COLUNA
+--SE FOR USAR PRA SELECIONAR UM DADO, MELHOR USAR A SELECTEDVALUES, PQ SENÃO TEM Q USAR A HASNOVALUE + IF
+
+Cor Selecionada v1 = 
+IF(
+    HASONEVALUE(Produto[Cor]),
+    VALUES(Produto[Cor]),
+    "Selecione uma Cor v1"
+)
+
+Cor Selecionada v2 = SELECTEDVALUE(Produto[Cor], "Selecione uma Cor v2")-- util pra trazer um dado selecionado em uma coluna/tabela
