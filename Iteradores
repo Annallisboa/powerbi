@@ -1,0 +1,13 @@
+--AVALIAM A EXPRESSÃO EM CADA LINHA E AGREGAM NO FINAL
+
+Qde Média Itens Diária = 
+AVERAGEX(
+    Data,
+    [Qde Itens Vendidos]
+)
+--PEGA O DIA QUE MAIS VENDEU
+Qde Máxima Itens Diária = 
+MAXX(
+    VALUES(Data[Data]),
+    [Qde Itens Vendidos]
+)
